@@ -1,6 +1,6 @@
 # CSRF 靶场
 
-一个故意不做 CSRF 防护的登录、注册、改密码小项目：前端 React（Vite），后端 Flask。只在本机的 127.0.0.1 上用，别拿去攻击任何别人的系统。
+一个故意不做 CSRF 防护的登录、注册、改密码小项目：前端 React（Vite），后端 Flask。只在本机的 127.0.0.1 环境使用。
 
 ## 运行方式
 
@@ -35,7 +35,7 @@ python -m http.server 8000 --bind 127.0.0.1    # 攻击页 http://127.0.0.1:8000
 
 ## 自动验证
 
-在某个分支启动后端后，运行 `python attacker/verify.py`。它只验证服务端逻辑，SameSite 的效果要在浏览器里看。
+在某个分支启动后端后，运行 `python attacker/verify.py`；这只验证服务端逻辑，SameSite 的效果在浏览器里验证。
 
 ## 其他目录
 
