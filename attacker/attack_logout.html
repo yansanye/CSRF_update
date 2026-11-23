@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>POC3 登出 CSRF</title></head>
+<body>
+<!--
+  POC3：登出 CSRF（影响较小，用于说明"所有状态变更接口"都需要防护）
+  目标接口：POST /api/logout
+  预期：main 上受害者被强制登出；防御分支返回 403，受害者仍保持登录。
+-->
+<h1>POC3：登出 CSRF（本地实验）</h1>
+<form action="http://127.0.0.1:5000/api/logout" method="POST">
+  <button type="submit">触发实验请求</button>
+</form>
+</body></html>

